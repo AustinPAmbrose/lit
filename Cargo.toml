@@ -9,3 +9,12 @@ edition = "2021"
 clap = { version = "4.2.5", features = ["derive"] }
 hostname = "0.3.1"
 hueclient = "0.4.3"
+
+# Compile for mac with M1
+# cargo build --target=aarch64-apple-darwin
+#
+# Compile for mac on Intel
+# cargo build --target=x86_64-apple-darwin
+#
+# Compile for Windows on Intel
+# cargo build --target=x86_64-pc-windows-msvc
