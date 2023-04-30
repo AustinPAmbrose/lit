@@ -1,4 +1,4 @@
-# Lit - Control your smart lights from the command line!
+# Lit
 
 ## Installation
 To install **lit**, run one of the following commands
