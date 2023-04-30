@@ -12,19 +12,19 @@ struct Args {
     #[arg(short, long, default_value_t = false)]
     bedroom: bool,
 
-    /// Only affect the kitchen lights
-    #[arg(short, long, default_value_t = false)]
-    kitchen: bool,
+    // /// Only affect the kitchen lights
+    // #[arg(short, long, default_value_t = false)]
+    // kitchen: bool,
+    //
+    // /// Only affect the poker lights
+    // #[arg(short, long, default_value_t = false)]
+    // poker: bool,
+    //
+    // /// Only affect the living room lights
+    // #[arg(short, long, default_value_t = false)]
+    // livingroom: bool,
 
-    /// Only affect the poker lights
-    #[arg(short, long, default_value_t = false)]
-    poker: bool,
-
-    /// Only affect the living room lights
-    #[arg(short, long, default_value_t = false)]
-    livingroom: bool,
-
-    // Debug
+    /// View the current state of all lights
     #[arg(short, long, default_value_t = false)]
     debug: bool,
 }
@@ -70,6 +70,10 @@ fn main() {
         // Update the lights
         for light in &bridge.get_all_lights().unwrap() {
             if light.light.name.contains("Bedroom") {
+                if args.bedroom == true {
+                    bridge.set_light_state(light.id, &cmd).unwrap();
+                }
+            } else {
                 bridge.set_light_state(light.id, &cmd).unwrap();
             }
         }
