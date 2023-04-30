@@ -5,12 +5,12 @@ To install **lit**, run one of the following commands
 
 Mac OS (Intel):
 ```bash
-sudo rm -f /usr/local/bin/lit; curl https://raw.githubusercontent.com/AustinPAmbrose/lit/main/bin/macOS/lit -o /usr/local/bin/lit; chmod a+x /usr/local/bin/lit
+sudo rm -f /usr/local/bin/lit; sudo curl https://raw.githubusercontent.com/AustinPAmbrose/lit/main/bin/macOS/lit -o /usr/local/bin/lit; sudo chmod a+x /usr/local/bin/lit
 ```
 
 Mac OS (ARM):
 ```bash
-sudo rm -f /usr/local/bin/lit; curl https://raw.githubusercontent.com/AustinPAmbrose/lit/main/bin/macOS_ARM64/lit -o /usr/local/bin/lit; chmod a+x /usr/local/bin/lit
+sudo rm -f /usr/local/bin/lit; sudo curl https://raw.githubusercontent.com/AustinPAmbrose/lit/main/bin/macOS_ARM64/lit -o /usr/local/bin/lit; sudo chmod a+x /usr/local/bin/lit
 ```
 
 Windows 10:
