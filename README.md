@@ -1,4 +1,4 @@
-# Lit - Home Automation
+# Lit
 
 ## Installation
 To install **lit**, run one of the following commands
