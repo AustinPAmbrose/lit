@@ -3,14 +3,19 @@
 ## Installation
 To install **lit**, run one of the following commands
 
-Mac OS:
+Mac OS (Intel):
 ```bash
-sudo rm /usr/local/bin/lit; sudo curl https://raw.githubusercontent.com/AustinPAmbrose/lit/main/bin/lit -o /usr/local/bin/lit; sudo chmod a+x /usr/local/bin/lit
+sudo rm -f /usr/local/bin/lit; curl https://raw.githubusercontent.com/AustinPAmbrose/lit/main/bin/macOS/lit -o /usr/local/bin/lit; chmod a+x /usr/local/bin/lit
+```
+
+Mac OS (ARM):
+```bash
+sudo rm -f /usr/local/bin/lit; curl https://raw.githubusercontent.com/AustinPAmbrose/lit/main/bin/macOS_ARM64/lit -o /usr/local/bin/lit; chmod a+x /usr/local/bin/lit
 ```
 
 Windows 10:
 ```cmd
-DEL %HOMEPATH%\lit.exe && curl https://raw.githubusercontent.com/AustinPAmbrose/lit/main/bin/lit -o %HOMEPATH%\lit.exe
+DEL %HOMEPATH%\lit.exe && curl https://raw.githubusercontent.com/AustinPAmbrose/lit/main/bin/windows/lit.exe -o %HOMEPATH%\lit.exe
 ```
 
 NOTE: For Windows 10 users, lit.exe installs into your home directory (C:\Users\username). If you don't modify you're path environment variable, you'll only be able to run lit.exe when you're in your home folder.
