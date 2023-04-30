@@ -74,7 +74,9 @@ fn main() {
                     bridge.set_light_state(light.id, &cmd).unwrap();
                 }
             } else {
-                bridge.set_light_state(light.id, &cmd).unwrap();
+                if args.bedroom == false {
+                    bridge.set_light_state(light.id, &cmd).unwrap();
+                }
             }
         }
     }
