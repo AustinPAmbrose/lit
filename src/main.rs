@@ -12,17 +12,17 @@ struct Args {
     #[arg(short, long, default_value_t = false)]
     bedroom: bool,
 
-    // /// Only affect the kitchen lights
-    // #[arg(short, long, default_value_t = false)]
-    // kitchen: bool,
-    //
-    // /// Only affect the poker lights
-    // #[arg(short, long, default_value_t = false)]
-    // poker: bool,
-    //
-    // /// Only affect the living room lights
-    // #[arg(short, long, default_value_t = false)]
-    // livingroom: bool,
+    /// Only affect the kitchen lights
+    #[arg(short, long, default_value_t = false)]
+    kitchen: bool,
+
+    /// Only affect the poker lights
+    #[arg(short, long, default_value_t = false)]
+    poker: bool,
+
+    /// Only affect the living room lights
+    #[arg(short, long, default_value_t = false)]
+    livingroom: bool,
 
     /// View the current state of all lights
     #[arg(short, long, default_value_t = false)]
@@ -69,15 +69,27 @@ fn main() {
 
         // Update the lights
         for light in &bridge.get_all_lights().unwrap() {
-            if light.light.name.contains("Bedroom") {
-                if args.bedroom == true {
-                    bridge.set_light_state(light.id, &cmd).unwrap();
-                }
-            } else {
-                if args.bedroom == false {
+            if (args.bedroom == false) &&
+               (args.kitchen == false) &&
+               (args.livingroom == false) &&
+               (args.poker == false) {
+
+                if !light.light.name.contains("Bedroom") {
                     bridge.set_light_state(light.id, &cmd).unwrap();
                 }
             }
+
+            if args.bedroom == true {if light.light.name.contains("Bedroom")
+            {bridge.set_light_state(light.id, &cmd).unwrap();}}
+
+            if args.kitchen == true {if light.light.name.contains("Kitchen")
+            {bridge.set_light_state(light.id, &cmd).unwrap();}}
+
+            if args.livingroom == true {if light.light.name.contains("Living")
+            {bridge.set_light_state(light.id, &cmd).unwrap();}}
+
+            if args.poker == true {if light.light.name.contains("Poker")
+            {bridge.set_light_state(light.id, &cmd).unwrap();}}
         }
     }
 }
